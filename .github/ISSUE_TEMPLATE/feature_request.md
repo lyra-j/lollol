@@ -1,20 +1,24 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
+name: Feature Template
+about: 기능 요청 이슈 템플릿
+title: '[Feature]'
+labels: "✨ Feature"
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+# ✨ Feature
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+### 1. 어떤 기능인가요?
+> 현재 개발하고자 하는 기능의 배경 및 주 기능 간략 설명
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+<br>
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+### 2. 작업 상세 내용
+- [ ] TODO
+- [ ] TODO
+- [ ] TODO
+
+<br>
+
+### 3. 참고할만한 자료 (선택)
