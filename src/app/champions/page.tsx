@@ -12,7 +12,7 @@ const ChampionList = async () => {
   const championList: Champion[] = await fetchChampionList();
 
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+    <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       {championList.map((champion: Champion) => (
         <ChampionCard key={champion.id} champion={champion} />
       ))}
