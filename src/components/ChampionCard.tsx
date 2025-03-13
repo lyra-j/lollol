@@ -1,4 +1,4 @@
-import { LOADING_IMG_URL } from '@/constants/constants';
+import { championSquareImgUrl} from '@/constants/constants';
 import { Champion } from '@/types/Champion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,13 +8,13 @@ type ChampionCardProps = {
 };
 
 const ChampionCard = ({ champion }: ChampionCardProps) => {
-  const IMAGE_URL = `${LOADING_IMG_URL}/${champion.id}_0.jpg`;
+  const SQUARE_IMAGE_URL = championSquareImgUrl(champion.version);
 
   return (
     <li className="p-4 border rounded-lg border-violet-300">
       <Link href={`/champions/${champion.id}`} className='flex flex-col items-start '>
         <Image
-          src={IMAGE_URL}
+          src={`${SQUARE_IMAGE_URL}/${champion.id}.png`}
           alt={`${champion.name} 이미지`}
           width={200}
           height={200}
