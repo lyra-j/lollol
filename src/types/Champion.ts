@@ -107,12 +107,3 @@ export type ChampionPassive = {
   description: string;
   image: ChampionImage;
 };
-
-// 챔피언 스킬 정보 타입
-export type ChampionSkill = {
-  id: string;
-  key: string;
-  name: string;
-  description: string;
-  image: ChampionImage;
-};

@@ -7,7 +7,7 @@ export default function Home() {
       <article>
         <div>
           <h2 className="font-pretendard text-4xl font-bold">LoLLoL</h2>
-          <p className="mt-4 text-gray-700">Riot Games API를 활용하여 챔피언과 아이템 정보를 제공합니다.</p>
+          <p className="mt-4 text-gray-400">Riot Games API를 활용하여 챔피언과 아이템 정보를 제공합니다.</p>
         </div>
 
         <div>
