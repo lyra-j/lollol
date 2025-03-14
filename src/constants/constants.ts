@@ -13,3 +13,6 @@ export const passiveImgUrl = (version: string, passiveImg: string) =>
 
 // 챔피언 스펠 이미지 불러오기
 export const spellImgUrl = (version: string, spellImg: string) => `${LOL_API_URL}/cdn/${version}/img/spell/${spellImg}`;
+
+// 아이템 이미지 불러오기
+export const itemImgUrl = (version: string, itemImg: string) => `${LOL_API_URL}/cdn/${version}/img/item/${itemImg}`;

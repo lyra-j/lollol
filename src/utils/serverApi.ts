@@ -1,5 +1,6 @@
 import { DEFAULT_LANGUAGE, LOL_API_URL } from '@/constants/constants';
 import { Champion, ChampionDetail } from '@/types/Champion';
+import { Item } from '@/types/Item';
 
 // 최신 version 정보 가져오기
 export const getLatestVersion = async (): Promise<string> => {
@@ -58,4 +59,22 @@ export const fetchChampionDetail = async (id: string): Promise<ChampionDetail> =
   const championDetail = data.data[id];
 
   return championDetail;
+};
+
+// 아이템 목록 가져오기 (SSG)
+export const fetchItemList = async (): Promise<Item[]> => {
+  const version = await getLatestVersion();
+  const res = await fetch(`${LOL_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/item.json`, {
+    cache: 'force-cache',
+  });
+
+  console.log('빌드시에만 데이터를 가져와요!! 새고 안됨!');
+
+  if (!res.ok) {
+    throw new Error(`아이템 목록 요청 실패: ${res.status}`);
+  }
+
+  const data = await res.json();
+  // data.data는 객체를 반환, map을 사용하기 위해서 배열로 변환
+  return Object.values(data.data);
 };
