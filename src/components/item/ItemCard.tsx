@@ -13,7 +13,7 @@ const ItemCard = ({ item, version }: ItemCardProps) => {
   const itemImgUrl = `${LOL_API_URL}/cdn/${version}/img/item/${item.image.full}`;
 
   return (
-    <li className="border-primary rounded-lg border p-4">
+    <li className="border-primary w-[150px] rounded-lg border p-5">
       <Image src={itemImgUrl} alt={item.name} width={80} height={80} className="mx-auto" />
       <h3 className="text-primary mt-2 text-xl font-semibold">
         {/* JSON데이터에서 넘어온 HTML 및 불필요한 텍스트 제거 */}

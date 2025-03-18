@@ -14,7 +14,7 @@ const ChampionCard = ({ champion }: ChampionCardProps) => {
   const SQUARE_IMAGE_URL = championSquareImgUrl(champion.version);
 
   return (
-    <li className="border-primary rounded-lg border p-4">
+    <li className="border-primary h-[240px] w-[180px] rounded-lg border p-4">
       <Link href={`${NAVI.CAHMPIONS.URL}/${champion.id}`} className="flex flex-col items-start">
         <Image
           src={`${SQUARE_IMAGE_URL}/${champion.id}.png`}

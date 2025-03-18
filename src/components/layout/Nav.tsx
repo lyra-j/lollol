@@ -5,7 +5,7 @@ import { NAVI } from '@/constants/navigation';
 const Nav = () => {
   return (
     <nav className="container mx-auto">
-      <ul className="flex justify-around">
+      <ul className="flex max-w-[1200] justify-around">
         <li>
           <Link href={NAVI.HOME.URL}>{NAVI.HOME.LABLE}</Link>
         </li>
