@@ -1,9 +1,11 @@
 'use client';
 
 import { Champion } from '@/types/Champion';
-import { getChampionRotation } from '@/utils/riotApi';
-import { fetchChampionList } from '@/utils/serverApi';
+import { getChampionRotation } from '@/services/riotApi';
+import { fetchChampionList } from '@/services/serverApi';
 import { useQuery } from '@tanstack/react-query';
+import Error from '@/app/rotation/error';
+import Loading from '@/app/loading';
 import ChampionCard from './ChampionCard';
 
 const RotationChampionList = () => {
@@ -12,6 +14,7 @@ const RotationChampionList = () => {
     isPending: rotationPending,
     isError,
     error,
+    refetch,
   } = useQuery({
     queryKey: ['rotationKeyList'],
     queryFn: getChampionRotation,
@@ -22,8 +25,8 @@ const RotationChampionList = () => {
     queryFn: fetchChampionList,
   });
 
-  if (rotationPending || championPending) return <div>불러오는 중...</div>;
-  if (isError) return <div>에러 발생: {error.message}</div>;
+  if (rotationPending || championPending) return <Loading />;
+  if (isError) return <Error error={error} reset={refetch} />;
   if (!rotationData || !championsData) return <div>데이터가 없습니다</div>;
 
   const championMap = championsData
@@ -35,7 +38,7 @@ const RotationChampionList = () => {
     .filter((champion) => champion !== undefined) as Champion[];
 
   return (
-    <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
       {rotationChampionList?.map((champion) => <ChampionCard key={champion.key} champion={champion} />)}
     </ul>
   );

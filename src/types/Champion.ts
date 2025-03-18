@@ -1,3 +1,13 @@
+// 챔피언 리스트 res 타입
+export type ChampionListRes = {
+  type: string;
+  format: string;
+  version: string;
+  data: {
+    [key: string]: Champion;
+  };
+};
+
 // 챔피언 기본 정보 타입
 export type Champion = {
   version: string;
@@ -89,10 +99,8 @@ export type ChampionSpell = {
   cooldownBurn: string;
   cost: number[];
   costBurn: string;
-  // datavalues: {} // ???
   effect: (number[] | null)[];
   effectBurn: (string | null)[];
-  // vars: []
   costType: string;
   maxammo: string;
   range: number[];
