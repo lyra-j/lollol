@@ -5,8 +5,9 @@ import { getChampionRotation } from '@/services/riotApi';
 import { fetchChampionList } from '@/services/serverApi';
 import { useQuery } from '@tanstack/react-query';
 import Error from '@/app/rotation/error';
-import Loading from '@/app/loading';
 import ChampionCard from './ChampionCard';
+import LoadingSpinner from '../LoadingSpinner';
+import { QUERY_KEY } from '@/constants/queryKeys';
 
 const RotationChampionList = () => {
   const {
@@ -16,16 +17,16 @@ const RotationChampionList = () => {
     error,
     refetch,
   } = useQuery({
-    queryKey: ['rotationKeyList'],
+    queryKey: [QUERY_KEY.ROTATIONKEYLIST],
     queryFn: getChampionRotation,
   });
 
   const { data: championsData, isPending: championPending } = useQuery({
-    queryKey: ['championList'],
+    queryKey: [QUERY_KEY.CAHMPIONLIST],
     queryFn: fetchChampionList,
   });
 
-  if (rotationPending || championPending) return <Loading />;
+  if (rotationPending || championPending) return <LoadingSpinner />;
   if (isError) return <Error error={error} reset={refetch} />;
   if (!rotationData || !championsData) return <div>데이터가 없습니다</div>;
 
