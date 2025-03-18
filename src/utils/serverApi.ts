@@ -50,8 +50,6 @@ export const fetchChampionDetail = async (id: string): Promise<ChampionDetail> =
     cache: 'no-cache',
   });
 
-  // console.log('API 호출 시간:', new Date().toISOString()); // 확인 완료
-
   if (!res.ok) {
     throw new Error(`챔피언 상세정보 요청 실패: ${res.status}`);
   }
@@ -67,8 +65,6 @@ export const fetchItemList = async (): Promise<Item[]> => {
   const res = await fetch(`${LOL_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/item.json`, {
     cache: 'force-cache',
   });
-
-  console.log('빌드시에만 데이터를 가져와요!! 새고 안됨!');
 
   if (!res.ok) {
     throw new Error(`아이템 목록 요청 실패: ${res.status}`);
