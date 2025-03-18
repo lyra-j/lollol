@@ -1,6 +1,6 @@
 import { LOL_API_URL } from '@/constants/constants';
 import { Item } from '@/types/Item';
-import { withoutHtmlAndSlice } from '@/utils/removeHtml';
+import { removeHtmlAndSlice } from '@/utils/removeHtml';
 import Image from 'next/image';
 
 type ItemCardProps = {
@@ -15,8 +15,11 @@ const ItemCard = ({ item, version }: ItemCardProps) => {
   return (
     <li className="border-primary rounded-lg border p-4">
       <Image src={itemImgUrl} alt={item.name} width={80} height={80} className="mx-auto" />
-      <h3 className="text-primary mt-2 text-xl font-semibold">{withoutHtmlAndSlice(item.name)}</h3>
-      <p className="text-gray-400">{withoutHtmlAndSlice(item.plaintext)}</p>
+      <h3 className="text-primary mt-2 text-xl font-semibold">
+        {/* JSON데이터에서 넘어온 HTML 및 불필요한 텍스트 제거 */}
+        {removeHtmlAndSlice(item.name)}
+      </h3>
+      <p className="text-gray-400">{removeHtmlAndSlice(item.plaintext)}</p>
     </li>
   );
 };
