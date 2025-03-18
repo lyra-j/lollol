@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import DarkMode from './DarkMode';
 
 const Nav = () => {
   return (
     <nav className="container mx-auto">
-      <ul className=" flex justify-around">
+      <ul className="flex justify-around">
         <li>
           <Link href={'/'}>Home</Link>
         </li>
@@ -15,6 +16,9 @@ const Nav = () => {
         </li>
         <li>
           <Link href={'/items'}>Items</Link>
+        </li>
+        <li>
+          <DarkMode />
         </li>
       </ul>
     </nav>
