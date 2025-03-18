@@ -10,7 +10,7 @@ const NotFound = () => {
         </div>
         <div>
           <Link href={'/'}>
-            <button className="rounded-md border border-violet-300 px-3 py-2 font-semibold">Go Home</button>
+            <button className="rounded-md border border-primary px-3 py-2 font-semibold">Go Home</button>
           </Link>
         </div>
       </article>

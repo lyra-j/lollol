@@ -28,7 +28,7 @@ const Error = ({ error, reset }: ErrorProps) => {
           >
             Try again!
           </button>
-          <button onClick={() => push('/')} className="rounded-md border border-violet-300 px-2 py-1.5">
+          <button onClick={() => push('/')} className="rounded-md border border-primary px-2 py-1.5">
             Go Home
           </button>
         </div>
