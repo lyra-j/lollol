@@ -1,12 +1,7 @@
-'use client';
-import { Loader2 } from 'lucide-react';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 const Loading = () => {
-  return (
-    <div className="flex h-20 items-center justify-center">
-      <Loader2 className="text-primary h-8 w-8 animate-spin" />
-    </div>
-  );
+  return <LoadingSpinner />;
 };
 
 export default Loading;
