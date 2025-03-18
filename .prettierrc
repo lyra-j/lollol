@@ -4,9 +4,10 @@
   "useTabs": false,
   "semi": true,
   "singleQuote": true,
-  "trailingComma": "none",
+  "trailingComma": "all",
   "bracketSpacing": true,
   "arrowParens": "always",
   "proseWrap": "never",
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
