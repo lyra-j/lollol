@@ -1,4 +1,5 @@
 import { LOL_API_URL } from '@/constants/constants';
+import { NAVI } from '@/constants/navigation';
 import { Champion } from '@/types/Champion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +15,7 @@ const ChampionCard = ({ champion }: ChampionCardProps) => {
 
   return (
     <li className="border-primary rounded-lg border p-4">
-      <Link href={`/champions/${champion.id}`} className="flex flex-col items-start">
+      <Link href={`${NAVI.CAHMPIONS.URL}/${champion.id}`} className="flex flex-col items-start">
         <Image
           src={`${SQUARE_IMAGE_URL}/${champion.id}.png`}
           alt={champion.name}
