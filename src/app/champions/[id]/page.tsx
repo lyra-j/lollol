@@ -1,4 +1,4 @@
-import { LOADING_IMG_URL, passiveImgUrl, spellImgUrl, SPLASH_IMG_URL } from '@/constants/constants';
+import { LOADING_IMG_URL, LOL_API_URL, SPLASH_IMG_URL } from '@/constants/constants';
 import { ChampionDetail } from '@/types/Champion';
 import { fetchChampionDetail, getLatestVersion } from '@/utils/serverApi';
 import { Metadata } from 'next';
@@ -22,20 +22,26 @@ const ChampionDetailPage = async ({ params }: ChampionDetailProps) => {
   const version: string = await getLatestVersion();
   const champion: ChampionDetail = await fetchChampionDetail(params.id);
 
+  // 챔피언 패시브 스킬 이미지 불러오기
+  const passiveImgUrl = (version: string, passiveImg: string) =>
+    `${LOL_API_URL}/cdn/${version}/img/passive/${passiveImg}`;
+
+  // 챔피언 스펠 이미지 불러오기
+  const spellImgUrl = (version: string, spellImg: string) => `${LOL_API_URL}/cdn/${version}/img/spell/${spellImg}`;
+
   const spellKeys: string[] = ['Q', 'W', 'E', 'R'];
   const spellWithKeys = champion.spells.map((spell, idx) => ({
     ...spell,
     spellKeys: spellKeys[idx],
   }));
 
-
   return (
-    <article className="relative min-h-screen w-full text-white">
+    <section className="relative min-h-screen w-full text-white">
       {/* 배경 영역 */}
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-fixed bg-no-repeat opacity-80 grayscale-[60%]"
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-80 grayscale-[60%] sm:bg-fixed"
         style={{
-          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
+          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
         url(${SPLASH_IMG_URL}/${champion.id}_1.jpg)`,
         }}
       ></div>
@@ -106,7 +112,7 @@ const ChampionDetailPage = async ({ params }: ChampionDetailProps) => {
           </div>
         </div>
       </div>
-    </article>
+    </section>
   );
 };
 
