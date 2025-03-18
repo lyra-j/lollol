@@ -24,10 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={pretendard.variable}>
-      <body className={`${pretendard.variable} font-pretendard`}>
+    <html lang="ko" suppressHydrationWarning>
+      <body className={`${pretendard.variable} font-pretendard`} suppressHydrationWarning>
         <Provider>
-          <ThemeProvider attribute="class">
+          <ThemeProvider attribute="class" defaultTheme="light">
             <Header />
             <main className="relative mx-auto box-border flex min-h-[calc(100vh-140px)] w-full max-w-[1200px] flex-grow items-center justify-center p-8 text-center">
               {children}
