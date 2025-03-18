@@ -4,12 +4,9 @@ import { ChampionImage } from './Champion';
 export type ItemListRes = {
   type: string;
   version: string;
-  // basic: {}
   data: {
     [key: string]: Item;
   };
-  // groups: []
-  // tree: []
 };
 
 // 아이템 기본 정보 타입
