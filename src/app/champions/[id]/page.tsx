@@ -1,6 +1,6 @@
 import { LOADING_IMG_URL, LOL_API_URL, SPLASH_IMG_URL } from '@/constants/constants';
 import { ChampionDetail } from '@/types/Champion';
-import { fetchChampionDetail, getLatestVersion } from '@/utils/serverApi';
+import { fetchChampionDetail, getLatestVersion } from '@/services/serverApi';
 import { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -23,12 +23,12 @@ const ChampionDetailPage = async ({ params }: ChampionDetailProps) => {
   const champion: ChampionDetail = await fetchChampionDetail(params.id);
 
   // 챔피언 패시브 스킬 이미지 불러오기
-  const passiveImgUrl = (version: string, passiveImg: string) =>
-    `${LOL_API_URL}/cdn/${version}/img/passive/${passiveImg}`;
+  const passiveImgUrl = `${LOL_API_URL}/cdn/${version}/img/passive/${champion.passive.image.full}`;
 
   // 챔피언 스펠 이미지 불러오기
   const spellImgUrl = (version: string, spellImg: string) => `${LOL_API_URL}/cdn/${version}/img/spell/${spellImg}`;
 
+  // 스펠과 키보드 key 맵핑
   const spellKeys: string[] = ['Q', 'W', 'E', 'R'];
   const spellWithKeys = champion.spells.map((spell, idx) => ({
     ...spell,
@@ -80,13 +80,7 @@ const ChampionDetailPage = async ({ params }: ChampionDetailProps) => {
           <div className="flex w-full justify-center md:-ml-2">
             <ul className="grid grid-cols-3 gap-2 sm:grid-cols-5">
               <li className="flex flex-col items-center justify-center p-3">
-                <Image
-                  src={passiveImgUrl(version, champion.passive.image.full)}
-                  width={50}
-                  height={50}
-                  alt={champion.passive.name}
-                  className="rounded-sm"
-                />
+                <Image src={passiveImgUrl} width={50} height={50} alt={champion.passive.name} className="rounded-sm" />
                 <p className="mt-2 text-center text-sm">
                   {champion.passive.name}
                   <br />({champion.passive.image.group})
