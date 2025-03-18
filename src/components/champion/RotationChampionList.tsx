@@ -1,11 +1,12 @@
 'use client';
 
 import { Champion } from '@/types/Champion';
-import { getChampionRotation } from '@/utils/riotApi';
-import { fetchChampionList } from '@/utils/serverApi';
+import { getChampionRotation } from '@/services/riotApi';
+import { fetchChampionList } from '@/services/serverApi';
 import { useQuery } from '@tanstack/react-query';
-import ChampionCard from './ChampionCard';
 import Error from '@/app/rotation/error';
+import Loading from '@/app/loading';
+import ChampionCard from './ChampionCard';
 
 const RotationChampionList = () => {
   const {
@@ -24,7 +25,7 @@ const RotationChampionList = () => {
     queryFn: fetchChampionList,
   });
 
-  if (rotationPending || championPending) return <div>불러오는 중...</div>;
+  if (rotationPending || championPending) return <Loading />;
   if (isError) return <Error error={error} reset={refetch} />;
   if (!rotationData || !championsData) return <div>데이터가 없습니다</div>;
 
