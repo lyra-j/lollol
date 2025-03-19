@@ -3,11 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  /* 라이트 모드 기본값 : 청록계열 */
+  --foreground-rgb: 31, 191, 220;
+  --background-start-rgb: 3, 14, 14;
+  --background-end-rgb: 3, 14, 14;
 }
 
+html.dark {
+  /* 다크 모드일 때 : 보라계열*/
+  --foreground-rgb: 245, 245, 245;
+  --background-start-rgb: 12, 12, 24;
+  --background-end-rgb: 12, 12, 24;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-start-rgb));
@@ -15,7 +22,7 @@ body {
 
 /* 배경색 */
 .bg-primary {
-  @apply bg-cyan-500 dark:bg-violet-950;
+  @apply bg-cyan-600 dark:bg-violet-950;
 }
 
 /* 보더 색상 */

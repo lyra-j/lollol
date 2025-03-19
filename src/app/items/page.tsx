@@ -2,6 +2,7 @@ import ItemCard from '@/components/item/ItemCard';
 import { Item } from '@/types/Item';
 import { fetchItemList, getLatestVersion } from '@/services/serverApi';
 import { Metadata } from 'next';
+import GridUi from '@/components/GridUi';
 
 export const metadata: Metadata = {
   title: 'LoL Item List',
@@ -17,11 +18,11 @@ const ItemsPage = async () => {
       <h2 className="font-pretendard text-4xl font-bold">아이템 목록 보기</h2>
       <p className="mt-4 text-gray-400">아이템 정보를 확인해보세요.</p>
 
-      <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5">
+      <GridUi>
         {items.map((item) => (
           <ItemCard key={item.name} item={item} version={version} />
         ))}
-      </ul>
+      </GridUi>
     </section>
   );
 };

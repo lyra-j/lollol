@@ -4,6 +4,7 @@ import { fetchChampionList } from '@/services/serverApi';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import Loading from '../loading';
+import GridUi from '@/components/GridUi';
 
 export const metadata: Metadata = {
   title: 'LoL Champion List',
@@ -18,13 +19,13 @@ const ChampionsPage = async () => {
       <section className="flex flex-col p-4">
         <h2 className="font-pretendard text-4xl font-bold">챔피언 목록 보기</h2>
         <p className="mt-4 text-gray-400">챔피언 정보를 확인해보세요.</p>
-        <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5">
+        <GridUi>
           <Suspense fallback={<Loading />}>
             {championList.map((champion: Champion) => (
               <ChampionCard key={champion.id} champion={champion} />
             ))}
           </Suspense>
-        </ul>
+        </GridUi>
       </section>
     </>
   );

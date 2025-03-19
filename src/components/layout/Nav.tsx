@@ -4,8 +4,8 @@ import { NAVI } from '@/constants/navigation';
 
 const Nav = () => {
   return (
-    <nav className="container mx-auto">
-      <ul className="flex max-w-[1200] justify-around">
+    <nav className="container mx-auto max-w-[1200px]">
+      <ul className="flex items-center justify-between">
         <li>
           <Link href={NAVI.HOME.URL}>{NAVI.HOME.LABLE}</Link>
         </li>
