@@ -4,7 +4,7 @@ import { fetchChampionList } from '@/services/serverApi';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import Loading from '../loading';
-import GridUi from '@/components/GridUI';
+import GridUi from '@/components/GridUi';
 
 export const metadata: Metadata = {
   title: 'LoL Champion List',

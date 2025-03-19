@@ -8,7 +8,7 @@ import Error from '@/app/rotation/error';
 import ChampionCard from './ChampionCard';
 import LoadingSpinner from '../LoadingSpinner';
 import { QUERY_KEY } from '@/constants/queryKeys';
-import GridUi from '../GridUI';
+import GridUi from '../GridUi';
 
 const RotationChampionList = () => {
   // 챔피언 로테이션 정보 가져오기

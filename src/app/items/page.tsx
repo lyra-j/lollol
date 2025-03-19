@@ -2,7 +2,7 @@ import ItemCard from '@/components/item/ItemCard';
 import { Item } from '@/types/Item';
 import { fetchItemList, getLatestVersion } from '@/services/serverApi';
 import { Metadata } from 'next';
-import GridUi from '@/components/GridUI';
+import GridUi from '@/components/GridUi';
 
 export const metadata: Metadata = {
   title: 'LoL Item List',
