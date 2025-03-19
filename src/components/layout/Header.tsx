@@ -2,7 +2,7 @@ import Nav from './Nav';
 
 const Header = () => {
   return (
-    <header className="sticky top-0 w-full bg-primary text-white py-4 z-50 flex items-center justify-center">
+    <header className="bg-primary sticky top-0 z-50 flex w-full items-center justify-center py-4 text-white">
       <Nav />
     </header>
   );

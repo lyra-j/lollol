@@ -39,20 +39,21 @@ const ChampionDetailPage = async ({ params }: ChampionDetailProps) => {
     <section className="relative min-h-screen w-full text-white">
       {/* 배경 영역 */}
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-80 grayscale-[60%] sm:bg-fixed"
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-80 grayscale-[50%]"
         style={{
           backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
         url(${SPLASH_IMG_URL}/${champion.id}_1.jpg)`,
         }}
       ></div>
 
-      <div className="container relative m-auto min-h-screen max-w-[1200px] py-8 pb-20">
+      <div className="container relative m-auto min-h-screen py-8 pb-20">
         {/* 챔피언 소개 영역 */}
         <div className="flex flex-col gap-10 p-4">
-          <h2 className="text-3xl font-bold">
+          <div className="flex flex-col items-start">
+            <h2 className="text-primary text-6xl font-bold opacity-50 md:text-9xl">{champion.id}</h2>
             <p className="text-base font-light opacity-80">{champion.title}</p>
-            {champion.name}
-          </h2>
+            <h3 className="text-4xl font-bold md:text-5xl">{champion.name}</h3>
+          </div>
           <div className="flex flex-col gap-10">
             <div className="flex max-h-[200px] max-w-[200px] items-start justify-center overflow-hidden rounded-lg">
               <Image
@@ -67,7 +68,7 @@ const ChampionDetailPage = async ({ params }: ChampionDetailProps) => {
           </div>
 
           {/* 스탯 영역 */}
-          <h2 className="text-3xl font-bold">스탯</h2>
+          <h3 className="text-3xl font-bold">스탯</h3>
           <ul className="flex flex-row justify-center gap-8">
             <li>공격력: {champion.info.attack}</li>
             <li>방어력: {champion.info.defense}</li>
@@ -76,7 +77,7 @@ const ChampionDetailPage = async ({ params }: ChampionDetailProps) => {
           </ul>
 
           {/* 스킬 영역 */}
-          <h2 className="text-3xl font-bold">스킬</h2>
+          <h3 className="text-3xl font-bold">스킬</h3>
           <div className="flex w-full justify-center md:-ml-2">
             <ul className="grid grid-cols-3 gap-2 sm:grid-cols-5">
               <li className="flex flex-col items-center justify-center p-3">
